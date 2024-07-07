@@ -1,8 +1,21 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
 
 export default function Denuncia(){
+    const [siteUrl, setSiteUrl] = useState<string>("")
+    const [adUrl, setAdUrl] = useState<string>("")
+    const [desc, setDesc] = useState<string>("")
+
+
+    const handleClick = () =>{
+        setSiteUrl("")
+        setAdUrl("")
+        setDesc("")
+        alert("Denúncia registrada!")
+    }
 
     return(
         <main className="p-2 flex items-center w-full h-screen">
@@ -13,17 +26,17 @@ export default function Denuncia(){
                 <CardContent className="flex flex-col gap-y-3">
                     <div>
                         <p>Endereço do site:</p>
-                        <Input/>
+                        <Input value={siteUrl} onChange={(e)=>{setSiteUrl(e.target.value)}}/>
                     </div>
                     <div>
                         <p>Link do anúncio: <span className="text-muted-foreground">opicional</span></p>
-                        <Input/>
+                        <Input value={adUrl} onChange={(e)=>{setAdUrl(e.target.value)}}/>
                     </div>
                     <div>
                         <p>Descreva a denúncia:</p>
-                        <Input/>
+                        <Input value={desc} onChange={(e)=>{setDesc(e.target.value)}}/>
                     </div>
-                    <Button>Registrar denúncia</Button>
+                    <Button onClick={handleClick}>Registrar denúncia</Button>
                 </CardContent>
             </Card>
         </main>
