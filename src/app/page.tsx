@@ -40,21 +40,25 @@ export default function Home() {
     const recived = msg;
     setmsg("");
     
-    console.log(b64)
     setChat([...chat, newMessage]);
-    const aimsg = {
-      role: 'Assistente',
-      content: await sendMsg(recived, b64)
-    };
-    setChat([...chat, newMessage, aimsg]);
+    let res;
+    await handleConvertToBase64().then(() => {
+      return sendMsg(recived, b64)
+    }).then((r) => {
+      const aimsg = {
+        role: 'Assistente',
+        content: r 
+      };
+      setChat([...chat, newMessage, aimsg]);
+    })
+
+    
   };
 
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (event.target.files && event.target.files.length > 0) {
       setImage(file);
-      console.log(file)
-      await handleConvertToBase64();
     }
   };
 
