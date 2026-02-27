@@ -119,7 +119,7 @@ Built during the 3rd Hackathon of Venâncio Aires (2024):
 - **Bruno D'ávilla**
 - **Douglas Fantoni**
 - **João Almeida** — [@jdalmeida](https://github.com/jdalmeida)
-- **Ruan Bueno** -- [@rbxyz](https://github.com/rbxyz)
+- **Ruan Bueno** — [@rbxyz](https://github.com/rbxyz)
 
 ---
 
